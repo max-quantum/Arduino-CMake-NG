@@ -16,6 +16,8 @@ function(_consume_reserved_arguments _args _reserved_options _reserved_single_va
     list(LENGTH _args args_length)
     decrement_integer(args_length 1) # We'll peform index iteration - It's always length-1
 
+    # ToDo: Handle empty given sources
+
     foreach (index RANGE ${args_length})
 
         list(GET _args ${index} arg)
