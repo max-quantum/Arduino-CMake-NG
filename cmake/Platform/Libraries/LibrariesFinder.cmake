@@ -22,10 +22,6 @@ function(find_arduino_library _target_name _library_name _board_id)
     set(argument_options "3RD_PARTY" "HEADER_ONLY" "QUIET")
     cmake_parse_arguments(parsed_args "${argument_options}" "" "" ${ARGN})
 
-    if (NOT parsed_args_3RD_PARTY)
-        convert_string_to_pascal_case(${_library_name} _library_name)
-    endif ()
-
     find_file(library_path
             NAMES ${_library_name}
             PATHS ${ARDUINO_SDK_LIBRARIES_PATH} ${ARDUINO_CMAKE_SKETCHBOOK_PATH}
